@@ -1,1 +1,12 @@
-
+if __name__ == '__main__':
+    creditscore = int(input("please enter your credit score\n"))
+    if (creditscore < 630 and creditscore > 299):
+        print("with a credit score of ", creditscore, "you have bad credit")
+    elif (creditscore < 690 and creditscore > 631):
+        print("with a credit score of ", creditscore, "you have fair credit")
+    elif (creditscore < 720 and creditscore > 689):
+        print("with a credit score of ", creditscore, "you have good credit")
+    elif (creditscore < 851 and creditscore > 719):
+        print("with a credit score of ", creditscore, "you have excellent credit")
+    else:
+        print("please enter a valid credit score")

@@ -1,0 +1,24 @@
+def main():
+      current_age = int(input("Enter your current age: "))
+    retirement_age = int(input("Enter the age you want to retire: "))
+    current_income = float(input("Enter your current income: "))
+    income_saved_percent = float(input("Enter the percent of income you save each year: ")) / 100
+    current_savings = float(input("Enter your current savings: "))
+
+     years_until_retirement = retirement_age - current_age
+
+    
+    print("\n{:<8}{:<15}{:<20}{:<15}".format("Year", "Income", "Savings Added", "Total Savings"))
+
+    
+    for year in range(1, years_until_retirement + 1):
+        current_income *= 1.03  # 3% raise
+        savings_added = current_income * income_saved_percent
+        current_savings += savings_added
+        current_savings *= 1.06  # 6% yearly return on investment
+
+        
+        print("{:<8}{:<15,.0f}{:<20,.0f}{:<15,.0f}".format(year, current_income, savings_added, current_savings))
+
+if __name__ == "__main__":
+    main()

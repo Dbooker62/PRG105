@@ -1,0 +1,17 @@
+def main():
+    days_of_week = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+    total_weekly_sales = 0
+    daily_sales = []
+
+    for day in days_of_week:
+        daily_sales_amount = float(input(f"Enter the total sales amount for {day}: "))
+        total_weekly_sales += daily_sales_amount
+        daily_sales.append(daily_sales_amount)
+
+    average_sales_per_day = total_weekly_sales / len(days_of_week)
+
+    print(f"\nTotal sales for the week: ${total_weekly_sales:.2f}")
+    print(f"Average sales per day: ${average_sales_per_day:.2f}")
+
+if __name__ == "__main__":
+    main()

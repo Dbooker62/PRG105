@@ -1,0 +1,16 @@
+for i in range(99, 0, -1):
+    if i > 2:
+        print(f"{i} bottles of beer on the wall,")
+        print(f"{i} bottles of beer")
+        print("Take one down, pass it around")
+        print(f"{i - 1} bottles of beer on the wall\n")
+    elif i == 2:
+        print(f"{i} bottles of beer on the wall,")
+        print(f"{i} bottles of beer")
+        print("Take one down, pass it around")
+        print(f"{i - 1} bottle of beer on the wall\n")
+    else:
+        print(f"{i} bottle of beer on the wall,")
+        print(f"{i} bottle of beer")
+        print("Take one down, pass it around")
+        print(f"{i - 1} bottles of beer on the wall\n")

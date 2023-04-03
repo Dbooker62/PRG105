@@ -1,0 +1,30 @@
+def display_menu():
+    print("Please choose a car package:")
+    print("1. Car Package A")
+    print("2. Car Package B")
+    print("3. Car Package C")
+    print("4. Car Package D")
+    print("5. Car Package E")
+    print("Enter the number of your choice:")
+
+def display_package_info(package):
+    if package == 1:
+        print("Car Package A includes: Basic features, manual transmission, 2-door.")
+    elif package == 2:
+        print("Car Package B includes: Basic features, automatic transmission, 4-door.")
+    elif package == 3:
+        print("Car Package C includes: Advanced features, manual transmission, 4-door, sunroof.")
+    elif package == 4:
+        print("Car Package D includes: Advanced features, automatic transmission, 4-door, sunroof.")
+    elif package == 5:
+        print("Car Package E includes: Premium features, automatic transmission, 4-door, sunroof, leather seats.")
+    else:
+        print("Invalid choice, please try again.")
+
+def main():
+    display_menu()
+    user_choice = int(input())
+    display_package_info(user_choice)
+
+if __name__ == "__main__":
+    main()

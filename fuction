@@ -1,0 +1,78 @@
+pi = 3.14159  # global variable for pi
+
+
+def menu():
+    print("This program will find the area of a shape for you.")
+    print("1. Rectangle")
+    print("2. Triangle")
+    print("3. Square")
+    print("4. Circle")
+    print("5. Quit")
+
+    while True:
+        choice = input("Enter your choice (1-5): ")
+        if validate(choice):
+            return int(choice)
+        else:
+            print("Invalid choice. Please enter a number from 1 to 5.")
+
+
+def validate(value):
+    if value.isdigit():
+        number = int(value)
+        if 1 <= number <= 5:
+            return True
+    return False
+
+
+def get_rectangle_area():
+    length = get_value("length")
+    width = get_value("width")
+    return length * width
+
+
+def get_triangle_area():
+    base = get_value("base")
+    height = get_value("height")
+    return 0.5 * base * height
+
+
+def get_square_area():
+    side = get_value("side length")
+    return side ** 2
+
+
+def get_circle_area():
+    radius = get_value("radius")
+    return pi * radius ** 2
+
+
+def get_value(name):
+    while True:
+        value = input(f"Enter the {name}: ")
+        if value.isdigit():
+            return int(value)
+        else:
+            print("Invalid input. Please enter a positive number.")
+
+
+def main():
+    while True:
+        choice = menu()
+        if choice == 1:
+            area = get_rectangle_area()
+        elif choice == 2:
+            area = get_triangle_area()
+        elif choice == 3:
+            area = get_square_area()
+        elif choice == 4:
+            area = get_circle_area()
+        else:
+            print("Goodbye!")
+            break
+
+        print(f"The area is {area:.2f}\n")
+
+
+if __name__ == "__main__":
+    main()

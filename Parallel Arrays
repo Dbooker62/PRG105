@@ -1,0 +1,26 @@
+alpha = ['a', 'A', 'b', 'B', 'c', 'C', 'd', 'D', 'e', 'E', 'f', 'F', 'g', 'G', 'h', 'H', 'i', 'I', 'j', 'J', 'k', 'K', 'l', 'L', 'm', 'M', 'n', 'N', 'o', 'O', 'p', 'P', 'q', 'Q', 'r', 'R', 's', 'S', 't', 'T', 'u', 'U', 'v', 'V', 'w', 'W', 'x', 'X', 'y', 'Y', 'z', 'Z', ' ', '.', ',', '!']
+code = ['%', 'm', '#', '=', '@', '!', '*', '&', '(', ')', '[', ']', '{', '}', '<', '>', '+', '-', ':', ';', '^', '|', '$', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '`', '~', '?', '/', '\\', '"', "'", '.', ',', '(', ')', '_', '+', '[', ']', '{', '}', '<', '>', '!', '@', '#', '$', '%', '&', '*', '^', ':', ';', '|', '`', '~']
+
+
+secret_phrase = input("Enter your secret phrase: ")
+
+
+encoded_message = []
+for char in secret_phrase:
+    if char in alpha:
+        index = alpha.index(char)
+        encoded_char = code[index]
+        encoded_message.append(encoded_char)
+    else:
+        encoded_message.append(char)
+
+
+print("Encoded message:")
+print(encoded_message)
+
+
+with open("encoded_message.txt", "w") as file:
+    for char in encoded_message:
+        file.write(char + "\n")
+
+print("Encoded message has been written to encoded_message.txt.file.")

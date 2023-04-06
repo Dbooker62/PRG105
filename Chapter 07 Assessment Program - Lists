@@ -1,0 +1,40 @@
+alpha = ['a', 'A', 'b', 'B', 'c', 'C', 'd', 'D', 'e', 'E', 'f', 'F', 'g', 'G', 'h', 'H', 'i', 'I', 'j', 'J', 'k', 'K',
+         'l', 'L', 'm', 'M', 'n', 'N', 'o', 'O', 'p', 'P', 'q', 'Q', 'r', 'R', 's', 'S', 't', 'T', 'u', 'U', 'v', 'V',
+         'w', 'W', 'x', 'X', 'y', 'Y', 'z', 'Z', ' ', '.', ',', '!']
+code = ['%', 'm', '#', '=', '3', '@', '9', '(', '1', ']', '2', '{', '5', '^', '8', '|', '6', '}', '7', '[', '4', '(',
+        '0', '_', 'q', '&', 'p', '*', 'o', ')', 'i', '-', 'u', '+', 'y', '$', 't', '>', 'r', '?', 'e', '<', 'w', '`',
+        's', '[', 'd', ']', 'f', ':', 'g', ';', 'h', "'", 'j', '/', 'k', '>', 'l', ',', 'x', '.', 'c', '(', 'v', '>',
+        'b', ')', 'n', '!', 'm', '@', 'a', '#', 'z', '[', 'x', ']', 'v', '{', 'u', '}', 't', '|', 's', '\\', 'r', '^',
+        'q', '_', 'p', '`', 'o', '[', 'i', ']', 'h', ';', 'g', "'", 'f', ':', 'd', ',', 'c', '<', 'b', '>', 'a', '(',
+        '9', ')', '8', '*', '7', '&', '6', '^', '5', '%', '4', '$', '3', '>', '2', '@', '1', '!', '0']
+
+file_name = input("Enter the name of the file to import: ")
+
+try:
+
+    with open(file_name, 'r') as file:
+        encoded_list = file.readlines()
+        file.close()
+
+        decoded_message = ""
+        for encoded_char in encoded_list:
+            encoded_char = encoded_char.strip()  # Remove newline character
+            if encoded_char in code:
+                index = code.index(encoded_char)
+                decoded_char = alpha[index]
+            else:
+                decoded_char = encoded_char
+
+            decoded_message += decoded_char
+
+        print("Decoded Message: ", decoded_message)
+
+        with open('decoded_message.txt', 'w') as decoded_file:
+            decoded_file.write(decoded_message)
+            decoded_file.close()
+
+        print("Decoding complete. Decoded message has been written to decoded_message.txt file.")
+except FileNotFoundError:
+    print("File not found. Please enter a valid file name.")
+except Exception as e:
+    print("An error occurred:",str(e))
